@@ -6,7 +6,11 @@ export async function fetchDocsRawFile(
 ): Promise<string> {
   const url = `https://raw.githubusercontent.com/${source.owner}/${source.repo}/${source.branch}/${source.docsPath}/${relativePath}`;
 
-  const res = await fetch(url);
+  const res = await fetch(url, {
+    next: {
+      revalidate: 60 * 60, // 1 hour
+    },
+  });
 
   if (!res.ok) {
     throw new Error(
