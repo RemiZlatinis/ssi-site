@@ -1,4 +1,4 @@
-import { fetchDocsManifest } from "@/lib/docs/fetchManifest";
+import { fetchDocsManifest } from "@/lib/docs/fetchDocsManifest";
 import { docsRegistry } from "@/lib/docs/registry";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";

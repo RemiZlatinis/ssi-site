@@ -1,6 +1,6 @@
 import { DocsSource } from "./registry";
 
-export async function fetchSourceFile(
+export async function fetchDocsRawFile(
   source: DocsSource,
   relativePath: string
 ): Promise<string> {

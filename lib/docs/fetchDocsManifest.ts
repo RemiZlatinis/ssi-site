@@ -1,11 +1,10 @@
 import { DocsSource } from "./registry";
 import { DocsManifest } from "./manifest";
-import { fetchSourceFile } from "./fetchSourceFile";
+import { fetchDocsRawFile } from "./fetchDocsRawFile";
 
 export async function fetchDocsManifest(
   source: DocsSource
 ): Promise<DocsManifest> {
-  const raw = await fetchSourceFile(source, "manifest.json");
-
+  const raw = await fetchDocsRawFile(source, "manifest.json");
   return JSON.parse(raw) as DocsManifest;
 }

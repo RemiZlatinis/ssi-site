@@ -1,4 +1,4 @@
-import { fetchDocsManifest } from "@/lib/docs/fetchManifest";
+import { fetchDocsManifest } from "@/lib/docs/fetchDocsManifest";
 import { resolveDocsPage, resolveDocsSource } from "@/lib/docs/resolve";
 import { notFound } from "next/navigation";
 
