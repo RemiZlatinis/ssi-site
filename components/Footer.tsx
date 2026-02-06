@@ -26,7 +26,19 @@ export function Footer() {
           .
         </p>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
-          <span className="text-xs">MIT License</span>
+          <Link
+            href="/privacy-policy"
+            className="hover:text-foreground transition-colors"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms-of-service"
+            className="hover:text-foreground transition-colors"
+          >
+            Terms of Service
+          </Link>
+          <span className="text-xs ml-2">MIT License</span>
         </div>
       </div>
     </footer>

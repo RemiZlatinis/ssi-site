@@ -64,4 +64,14 @@ export const docsRegistry: DocsSource[] = [
     docsPath: "docs",
     enabled: true,
   },
+  {
+    id: "legal",
+    title: "Legal",
+    order: 99,
+    owner: "RemiZlatinis",
+    repo: "ssi-docs",
+    branch: "main",
+    docsPath: "",
+    enabled: false, // Hidden from documentation sidebar
+  },
 ];

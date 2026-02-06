@@ -33,7 +33,8 @@ export async function fetchDocsRawFile(
     }
   }
 
-  const url = `https://raw.githubusercontent.com/${source.owner}/${source.repo}/${source.branch}/${source.docsPath}/${relativePath}`;
+  const pathParts = [source.docsPath, relativePath].filter(Boolean).join("/");
+  const url = `https://raw.githubusercontent.com/${source.owner}/${source.repo}/${source.branch}/${pathParts}`;
 
   const res = await fetch(url, {
     next: {
