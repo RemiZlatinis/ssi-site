@@ -1,0 +1,19 @@
+@receiver(post_save, sender=Service)
+async def post_save_service_status(
+    sender, instance: Service, created: bool, **kwargs
+) -> None:
+    
+    if created:
+        # Broadcast new service added
+        await broadcast_service_added(
+            instance.agent.owner_id, 
+            event
+        )
+        return
+
+    # Broadcast status update to all connected clients
+    if update_fields and "last_status" in update_fields:
+        await broadcast_service_status_update(
+            instance.agent.owner_id, 
+            status_event
+        )

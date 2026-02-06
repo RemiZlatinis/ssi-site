@@ -35,11 +35,31 @@ export interface DocsSource {
 
 export const docsRegistry: DocsSource[] = [
   {
+    id: "core",
+    title: "Overview",
+    order: 0,
+    owner: "RemiZlatinis",
+    repo: "ssi",
+    branch: "main",
+    docsPath: "docs",
+    enabled: true,
+  },
+  {
     id: "agent",
-    title: "SSI Agent",
+    title: "Agent",
     order: 1,
     owner: "RemiZlatinis",
     repo: "ssi-agent",
+    branch: "main",
+    docsPath: "docs",
+    enabled: true,
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    order: 2,
+    owner: "RemiZlatinis",
+    repo: "ssi-backend",
     branch: "main",
     docsPath: "docs",
     enabled: true,

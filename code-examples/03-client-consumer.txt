@@ -1,0 +1,13 @@
+class ClientConsumer(AsyncHttpConsumer):
+    async def status_update(self, message: dict) -> None:
+        """Handle status updates from Django signals"""
+        await self._send_server_event(
+            message["event"]
+        )
+
+    async def service_status_update(
+        self, message: dict
+    ) -> None:
+        await self._send_server_event(
+            message["event"]
+        )

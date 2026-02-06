@@ -1,0 +1,42 @@
+// React Context - Receives SSE events and updates state
+const handleAgentsSSE = useCallback((event: AgentsSSEEvent) => {
+  switch (event.type) {
+    case "status_update":
+      setAgents((prevAgents) => {
+        const exists = prevAgents.some(
+          (agent) => agent.id === event.agent.id
+        );
+        if (exists) {
+          return prevAgents.map((agent) =>
+            agent.id === event.agent.id 
+              ? event.agent 
+              : agent
+          );
+        }
+        return [...prevAgents, event.agent];
+      });
+      break;
+    
+    case "service_status_update":
+      setAgents((prevAgents) =>
+        prevAgents.map((agent) =>
+          agent.id === event.agent_id
+            ? {
+                ...agent,
+                services: agent.services.map((service) =>
+                  service.id === event.service_id
+                    ? {
+                        ...service,
+                        last_status: event.status,
+                        last_message: event.message,
+                        last_seen: event.timestamp,
+                      }
+                    : service
+                ),
+              }
+            : agent
+        )
+      );
+      break;
+  }
+}, []);

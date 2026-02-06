@@ -1,0 +1,25 @@
+// Overview Screen - Displays real-time agent status
+function OverviewScreen() {
+  const { agents, isConnected } = useAgents();
+
+  return (
+    <AppScreen>
+      {/* Header with connection status */}
+      <View style={styles.headerContainer}>
+        <ConnectivityStatus isConnected={isConnected} />
+        <Text style={styles.header}>
+          Service Status Indicator
+        </Text>
+      </View>
+
+      {/* Agent List - Updates automatically via SSE */}
+      <FlatList
+        data={agents}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <AgentContainer agent={item} />
+        )}
+      />
+    </AppScreen>
+  );
+}

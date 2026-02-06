@@ -1,0 +1,19 @@
+# LogHandler - Watches log files and sends updates
+async def send_status_update(self, status_event: AgentEvent) -> None:
+    try:
+        if self.connection:
+            await self.connection.send(
+                status_event.model_dump_json()
+            )
+    except Exception as e:
+        logger.error(f"Error sending status: {e}")
+
+# Called when log file changes
+def on_modified(self, event: FileSystemEvent) -> None:
+    # ... read new lines ...
+    
+    # Parse and send
+    asyncio.run_coroutine_threadsafe(
+        self.send_status_update(status_event), 
+        self.loop
+    )

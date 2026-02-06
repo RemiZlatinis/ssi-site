@@ -1,0 +1,18 @@
+class AgentConsumer(AsyncWebsocketConsumer):
+    async def receive(self, text_data: str) -> None:
+        if not text_data or not self.agent:
+            return
+
+        try:
+            # Parse and validate incoming event
+            event = agent_event_type_adapter.validate_json(
+                text_data
+            )
+            
+            # Handle the agent event
+            await handle_agent_event(self.agent, event)
+            
+        except json.JSONDecodeError:
+            logger.warning(f"Invalid JSON from agent {self.agent.pk}")
+        except Exception as e:
+            logger.error(f"Error: {e}")
