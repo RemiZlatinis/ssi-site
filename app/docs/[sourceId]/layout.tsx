@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components/docs/Sidebar";
+import { DocsMobileNav } from "@/components/docs/DocsMobileNav";
 import { docsRegistry } from "@/lib/docs/registry";
 import { fetchDocsManifest } from "@/lib/docs/fetchDocsManifest";
 import { resolveDocsSource } from "@/lib/docs/resolve";
@@ -30,7 +31,16 @@ export default async function DocsLayout({
         manifest={manifest}
       />
       <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-        <div className="mx-auto w-full min-w-0">{children}</div>
+        <div className="mx-auto w-full min-w-0">
+          <DocsMobileNav
+            sources={docsRegistry
+              .filter((s) => s.enabled)
+              .sort((a, b) => a.order - b.order)}
+            currentSourceId={sourceId}
+            manifest={manifest}
+          />
+          {children}
+        </div>
       </main>
     </div>
   );
