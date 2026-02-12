@@ -29,10 +29,15 @@ export function DocsMobileNav({
   if (manifest) {
     for (const section of manifest.sections) {
       for (const page of section.pages) {
-        const pageHref = `/docs/${currentSourceId}/${page.id === "index" || page.id === "overview" ? "" : page.id}`;
+        // Build the href for this page
+        const pageHref = `/docs/${currentSourceId}/${page.id === "index" ? "" : page.id}`;
+        const rootPath = `/docs/${currentSourceId}`;
+        
+        // Check if this is the current page
+        // Index page matches root path, other pages match their specific path
         if (
-          pathname === pageHref ||
-          (page.id === "overview" && pathname === `/docs/${currentSourceId}`)
+          (page.id === "index" && pathname === rootPath) ||
+          (page.id !== "index" && pathname === pageHref)
         ) {
           currentPageTitle = page.title;
           break;
@@ -130,11 +135,10 @@ export function DocsMobileNav({
                           </h4>
                           <div className="flex flex-col gap-1 border-l-2 border-zinc-200 dark:border-zinc-700 pl-3">
                             {section.pages.map((page, pageIndex) => {
-                              const pageHref = `/docs/${currentSourceId}/${page.id === "index" || page.id === "overview" ? "" : page.id}`;
+                              const pageHref = `/docs/${currentSourceId}/${page.id === "index" ? "" : page.id}`;
                               const isActive =
-                                pathname === pageHref ||
-                                (page.id === "overview" &&
-                                  pathname === `/docs/${currentSourceId}`);
+                                (page.id === "index" && pathname === `/docs/${currentSourceId}`) ||
+                                (page.id !== "index" && pathname === pageHref);
 
                               return (
                                 <motion.div

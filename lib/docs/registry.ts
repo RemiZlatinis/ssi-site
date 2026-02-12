@@ -36,7 +36,7 @@ export interface DocsSource {
 export const docsRegistry: DocsSource[] = [
   {
     id: "core",
-    title: "Overview",
+    title: "Core",
     order: 0,
     owner: "RemiZlatinis",
     repo: "ssi",

@@ -29,7 +29,8 @@ export function resolveDocsPage(
   const allPages = manifest.sections.flatMap((s) => s.pages);
 
   if (!pageId) {
-    return allPages[0] || null;
+    // When no pageId specified, find the index page
+    return allPages.find((p) => p.id === "index") || allPages[0] || null;
   }
 
   return allPages.find((p) => p.id === pageId) || null;

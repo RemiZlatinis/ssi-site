@@ -50,12 +50,11 @@ export function Sidebar({ sources, currentSourceId, manifest }: SidebarProps) {
                   </h4>
                   <div className="flex flex-col gap-1 border-l pl-4">
                     {section.pages.map((page) => {
-                      const pageHref = `/docs/${currentSourceId}/${page.id === "index" || page.id === "overview" ? "" : page.id}`;
+                      const pageHref = `/docs/${currentSourceId}/${page.id === "index" ? "" : page.id}`;
                       // Handle "index" or root pages normalizing the path check
                       const isActive =
-                        pathname === pageHref ||
-                        (page.id === "overview" &&
-                          pathname === `/docs/${currentSourceId}`);
+                        (page.id === "index" && pathname === `/docs/${currentSourceId}`) ||
+                        (page.id !== "index" && pathname === pageHref);
 
                       return (
                         <Link
