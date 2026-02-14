@@ -131,7 +131,7 @@ export function ClientsSection() {
               </div>
 
               <Link
-                href="https://ssi-client-native.expo.app/"
+                href="https://app.service-status-indicator.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-colors"
