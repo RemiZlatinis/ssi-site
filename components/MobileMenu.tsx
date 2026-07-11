@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Github, BookOpen, Heart, MessageCircle } from "lucide-react";
+import { X, Github, BookOpen, Heart, MessageCircle, Terminal } from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -11,6 +11,7 @@ interface MobileMenuProps {
 
 const navLinks = [
   { href: "/docs/core", label: "Documentation", icon: BookOpen },
+  { href: "/docs/agent/quick-guide", label: "Quick Script Guide", icon: Terminal },
   { href: "/support", label: "Support", icon: MessageCircle },
 ];
 

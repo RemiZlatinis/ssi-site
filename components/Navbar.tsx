@@ -12,7 +12,6 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: "/docs/core", label: "Documentation" },
   { href: "/support", label: "Support" },
 ];
 
@@ -82,6 +81,47 @@ export function Navbar() {
 
             <NavigationMenu.Root className="hidden md:flex">
               <NavigationMenu.List className="flex items-center gap-1">
+                {/* Documentation Dropdown */}
+                <NavigationMenu.Item>
+                  <NavigationMenu.Trigger className={clsx(
+                    "group flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer",
+                    pathname?.startsWith("/docs")
+                      ? "text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800"
+                      : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                  )}>
+                    Documentation
+                    <ChevronDown className="h-4 w-4 transition-transform group-data-[state=open]:rotate-180" />
+                  </NavigationMenu.Trigger>
+                  <NavigationMenu.Content className="absolute top-full left-0 w-full sm:w-auto min-w-[280px] mt-2">
+                    <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl p-2">
+                      <div className="grid gap-1">
+                        <Link
+                          href="/docs/core"
+                          className="flex flex-col gap-1 p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+                        >
+                          <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                            Full Documentation
+                          </span>
+                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                            Explore manuals, architecture, and CLI references
+                          </span>
+                        </Link>
+                        <Link
+                          href="/docs/agent/quick-guide"
+                          className="flex flex-col gap-1 p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+                        >
+                          <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                            Quick Script Guide
+                          </span>
+                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                            Copy-pasteable boilerplate and CLI cheat sheet
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenu.Content>
+                </NavigationMenu.Item>
+
                 {/* Regular Links */}
                 {navLinks.map((link) => (
                   <NavigationMenu.Item key={link.href}>
