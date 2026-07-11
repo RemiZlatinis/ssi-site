@@ -11,7 +11,7 @@ interface MobileMenuProps {
 
 const navLinks = [
   { href: "/docs/core", label: "Documentation", icon: BookOpen },
-  { href: "/docs/agent/quick-guide", label: "Quick Script Guide", icon: Terminal },
+  { href: "/docs/agent/quick-guide", label: "Quick Guide for Service-Scripts", icon: Terminal },
   { href: "/support", label: "Support", icon: MessageCircle },
 ];
 

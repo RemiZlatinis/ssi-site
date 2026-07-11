@@ -111,10 +111,10 @@ export function Navbar() {
                           className="flex flex-col gap-1 p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
                         >
                           <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                            Quick Script Guide
+                            Quick Guide for Service-Scripts
                           </span>
                           <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                            Copy-pasteable boilerplate and CLI cheat sheet
+                            Boilerplate script and CLI reference for quick setup
                           </span>
                         </Link>
                       </div>
