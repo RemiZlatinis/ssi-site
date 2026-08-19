@@ -134,8 +134,8 @@ If MDX is used, it must be treated strictly as **rendered content**, not as exec
 
 ### UI Layer
 
-- **Chakra UI** is the primary UI framework
-- Chakra’s theme system must be used consistently
+- **Tailwind CSS** is the primary UI framework
+- Tailwind's utility classes and design tokens must be used consistently
 
 UI decisions must favor:
 
@@ -179,7 +179,7 @@ The following ownership rules apply:
 - `app/` → Next.js routes and page composition only
 - `lib/` → Documentation ingestion, fetching, parsing, and registries
 - `components/` → Presentational UI components only
-- `theme/` or `styles/` → Chakra UI theme configuration and design tokens
+- `theme/` or `styles/` → Tailwind CSS theme configuration and design tokens
 
 Business logic must not live inside route components. UI components must not perform data ingestion.
 
