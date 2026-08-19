@@ -15,7 +15,7 @@ export function CTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">
-            Ready to monitor everything? The sky's the limit!
+            Ready to monitor everything? The sky&apos;s the limit!
           </h2>
           <p className="text-zinc-400 max-w-[600px] mx-auto text-xl mb-10">
             Get started with the SSI in minutes. Open Source and free to
