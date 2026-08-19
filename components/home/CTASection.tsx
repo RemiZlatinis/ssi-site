@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { AppLink } from "@/components/ui/AppLink";
 
 export function CTASection() {
   return (
     <section className="w-full py-24 bg-gradient-to-b from-indigo-950 to-black text-white">
-      <div className="container px-4 md:px-8 mx-auto text-center">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,14 +23,7 @@ export function CTASection() {
             use.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/docs/agent">
-              <Button
-                size="lg"
-                className="bg-white text-black hover:bg-zinc-200 border-transparent w-full sm:w-auto"
-              >
-                Get Started Now
-              </Button>
-            </Link>
+            <AppLink className="w-full sm:w-auto" />
             <Link href="/support">
               <Button
                 variant="outline"

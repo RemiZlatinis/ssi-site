@@ -6,7 +6,7 @@ import { Terminal, Server, Smartphone } from "lucide-react";
 export function FeaturesSection() {
   return (
     <section id="features" className="w-full py-24 bg-white dark:bg-zinc-950">
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
             The Complete Ecosystem

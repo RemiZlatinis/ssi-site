@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Terminal } from "lucide-react";
+import { Terminal } from "lucide-react";
 import { TypewriterHero } from "./TypewriterHero";
 import { RotatingHeroText } from "./RotatingHeroText";
 import { InteractiveDescription } from "./InteractiveDescription";
 import { motion } from "framer-motion";
+import { AppLink } from "@/components/ui/AppLink";
 
 export function HeroSection() {
   return (
     <section className="w-full pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32 bg-gradient-to-b from-zinc-50 to-white dark:from-black dark:to-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Badge */}
           <motion.div
@@ -52,11 +53,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 w-full justify-center"
           >
-            <Link href="/docs/core">
-              <Button size="lg" className="gap-2 w-full sm:w-auto">
-                Get Started <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
+            <AppLink className="w-full sm:w-auto" />
             <Link href="https://github.com/RemiZlatinis/ssi" target="_blank">
               <Button
                 variant="outline"

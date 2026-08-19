@@ -12,11 +12,12 @@ import {
 import { WebClientMockup } from "./WebClientMockup";
 import { MobileClientMockup } from "./MobileClientMockup";
 import Link from "next/link";
+import { APP_URL } from "@/config/app";
 
 export function ClientsSection() {
   return (
     <section className="w-full py-24 bg-gradient-to-b lg:bg-gradient-to-br from-indigo-900 via-black to-cyan-950 lg:to-cyan-900 text-white overflow-hidden">
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div
@@ -131,7 +132,7 @@ export function ClientsSection() {
               </div>
 
               <Link
-                href="https://app.service-status-indicator.com/"
+                href={APP_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-lg font-medium hover:bg-white/20 transition-colors"

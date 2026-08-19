@@ -6,7 +6,7 @@ import { Radio, Activity, Bell, Lock, ShieldCheck, FileCheck } from "lucide-reac
 export function HighlightsSection() {
   return (
     <section className="w-full py-24 bg-white dark:bg-zinc-950">
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

@@ -8,7 +8,7 @@ import { AgentInstallCommand } from "./AgentInstallCommand";
 export function AgentInstallSection() {
   return (
     <section className="w-full py-24 bg-white dark:bg-zinc-950 border-y border-zinc-200 dark:border-zinc-800">
-      <div className="container px-4 md:px-8 mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center rounded-lg bg-zinc-200 dark:bg-zinc-800 px-3 py-1 text-sm font-medium mb-4">
             <Terminal className="mr-2 h-4 w-4" /> Quick Install

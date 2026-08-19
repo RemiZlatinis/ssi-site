@@ -70,7 +70,7 @@ export function EnhancedFooter() {
     <>
       {/* Support Section */}
       <section className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black">
-        <div className="container px-4 md:px-8 mx-auto py-16 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-16 border-b border-zinc-200 dark:border-zinc-800">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/20 mb-4">
               <Heart className="h-6 w-6 text-red-500" />
@@ -143,7 +143,7 @@ export function EnhancedFooter() {
 
       {/* Links Section */}
       <section className="w-full bg-zinc-50 dark:bg-black">
-        <div className="container px-4 md:px-8 mx-auto py-12">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {Object.entries(footerLinks).map(([key, section]) => (
               <div key={key}>
@@ -194,7 +194,7 @@ export function EnhancedFooter() {
 
       {/* Bottom Bar */}
       <section className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black">
-        <div className="container px-4 md:px-8 mx-auto py-6">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
               Built by{" "}

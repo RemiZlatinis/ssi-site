@@ -3,13 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Button } from "./ui/Button";
 import { Github, Menu, Heart, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { clsx } from "clsx";
 import { MobileMenu } from "./MobileMenu";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { motion, AnimatePresence } from "framer-motion";
+import { AppLink } from "./ui/AppLink";
 
 const navLinks = [
   { href: "/support", label: "Support" },
@@ -57,7 +57,7 @@ export function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-black/80 backdrop-blur-xl">
-        <div className="container px-4 md:px-8 flex h-16 items-center justify-between mx-auto">
+        <div className="w-full max-w-7xl px-4 md:px-8 flex h-16 items-center justify-between mx-auto">
           {/* Logo & Desktop Nav */}
           <div className="flex items-center gap-8">
             <Link
@@ -177,7 +177,7 @@ export function Navbar() {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3">
             {/* Sponsor Button (Desktop) */}
-            <div className="hidden md:block relative">
+            <div className="hidden lg:block relative">
               <button
                 onClick={() => setIsSponsorOpen(!isSponsorOpen)}
                 className={clsx(
@@ -257,10 +257,8 @@ export function Navbar() {
               <span className="sr-only">GitHub</span>
             </Link>
 
-            {/* Get Started Button */}
-            <Link href="/docs/core" className="hidden md:block">
-              <Button size="sm">Get Started</Button>
-            </Link>
+            {/* Open Web App Button */}
+            <AppLink size="sm" className="hidden md:inline-flex" />
 
             {/* Mobile Menu Button */}
             <button
