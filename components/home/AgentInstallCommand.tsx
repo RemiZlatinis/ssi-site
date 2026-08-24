@@ -90,13 +90,7 @@ export function AgentInstallCommand() {
   return (
     <div className="w-full max-w-lg mx-auto">
       {/* Terminal Window */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-900 shadow-2xl"
-      >
+      <div className="animate-fade-up reveal-view rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-900 shadow-2xl">
         {/* Terminal Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-zinc-800 border-b border-zinc-700">
           <div className="flex items-center gap-2">
@@ -135,16 +129,10 @@ export function AgentInstallCommand() {
             </code>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Prerequisites */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mt-6 space-y-3"
-      >
+      <div className="animate-fade-up reveal-view mt-6 space-y-3">
         <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
           <Shield className="h-4 w-4 text-zinc-500" />
           Prerequisites
@@ -170,20 +158,14 @@ export function AgentInstallCommand() {
             <span>Linux only</span>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Description */}
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-4 text-sm text-zinc-600 dark:text-zinc-400"
-      >
+      <p className="animate-fade-up reveal-view mt-4 text-sm text-zinc-600 dark:text-zinc-400">
         This one-liner clones the repository and runs the installer. 
         It sets up the agent with systemd service, creates the ssi-agent user, 
         and configures everything automatically.
-      </motion.p>
+      </p>
     </div>
   );
 }

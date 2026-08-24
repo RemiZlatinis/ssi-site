@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Terminal, FileText, Clock, ArrowRight, Server } from "lucide-react";
 import Image from "next/image";
 
@@ -22,13 +19,7 @@ export function AgentArchitectureVisual() {
         {/* Architecture Flow */}
         <div className="space-y-6">
           {/* Service Scripts Layer */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-4"
-          >
+          <div className="animate-fade-left reveal-view flex items-center gap-4">
             <div className="flex-1 bg-white dark:bg-zinc-900 rounded-lg p-3 border border-zinc-200 dark:border-zinc-700">
               <div className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
                 <FileText className="h-4 w-4" />
@@ -43,26 +34,17 @@ export function AgentArchitectureVisual() {
               <Clock className="h-5 w-5 text-blue-500" />
               <span className="text-[10px] text-zinc-600 dark:text-zinc-400">systemd</span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Arrow Down */}
           <div className="flex justify-center">
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
+            <div className="animate-bounce-soft">
               <ArrowRight className="h-5 w-5 text-zinc-400 rotate-90" />
-            </motion.div>
+            </div>
           </div>
 
           {/* Log Files Layer */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex items-center gap-4"
-          >
+          <div className="animate-fade-left reveal-view flex items-center gap-4">
             <div className="flex-1 bg-white dark:bg-zinc-900 rounded-lg p-3 border border-zinc-200 dark:border-zinc-700">
               <div className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
                 <Terminal className="h-4 w-4" />
@@ -73,26 +55,17 @@ export function AgentArchitectureVisual() {
               </div>
             </div>
             <div className="w-16" />
-          </motion.div>
+          </div>
 
           {/* Arrow Down */}
           <div className="flex justify-center">
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-            >
+            <div className="animate-bounce-soft [animation-delay:500ms]">
               <ArrowRight className="h-5 w-5 text-zinc-400 rotate-90" />
-            </motion.div>
+            </div>
           </div>
 
           {/* Agent Daemon Layer */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center justify-center"
-          >
+          <div className="animate-fade-scale reveal-view flex items-center justify-center">
             <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border-2 border-green-500/30 shadow-lg">
               <div className="flex items-center gap-3">
                 <Image
@@ -108,35 +81,25 @@ export function AgentArchitectureVisual() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Arrow to Backend */}
           <div className="flex justify-center items-center gap-2">
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex items-center gap-2"
-            >
+            <div className="animate-nudge-x flex items-center gap-2">
               <ArrowRight className="h-5 w-5 text-green-500" />
               <span className="text-xs text-green-600 dark:text-green-400 font-medium">WebSocket</span>
-            </motion.div>
+            </div>
           </div>
 
           {/* Backend Layer */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center justify-center"
-          >
+          <div className="animate-fade-right reveal-view flex items-center justify-center">
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
               <div className="flex items-center gap-2">
                 <Server className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm font-medium text-blue-900 dark:text-blue-100">SSI Backend</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Key Features */}

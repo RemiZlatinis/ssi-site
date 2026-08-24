@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Terminal } from "lucide-react";
 
 export function AgentASCIIDiagram() {
@@ -21,12 +18,8 @@ export function AgentASCIIDiagram() {
 
         {/* ASCII Art Container */}
         <div className="p-4 overflow-x-auto">
-          <motion.pre
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-xs sm:text-sm font-mono leading-relaxed"
+          <pre
+            className="animate-fade-in reveal-view text-xs sm:text-sm font-mono leading-relaxed"
           >
             <code className="text-zinc-300">
 {`                                         ┌─────────────────┐
@@ -58,7 +51,7 @@ export function AgentASCIIDiagram() {
 │                                                                                │
 └────────────────────────────────────────────────────────────────────────────────┘`}
             </code>
-          </motion.pre>
+          </pre>
         </div>
 
         {/* Legend */}
@@ -81,17 +74,11 @@ export function AgentASCIIDiagram() {
       </div>
 
       {/* Flow Description */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-4 text-center"
-      >
+      <div className="animate-fade-up reveal-view mt-4 text-center">
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
           Service Scripts → systemd → Logs → Agent Daemon → Backend
         </p>
-      </motion.div>
+      </div>
     </div>
   );
 }

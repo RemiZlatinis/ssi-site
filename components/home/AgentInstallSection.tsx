@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Terminal } from "lucide-react";
 import { AgentArchitectureVisual } from "./AgentArchitectureVisual";
 import { AgentInstallCommand } from "./AgentInstallCommand";
@@ -24,26 +21,14 @@ export function AgentInstallSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Visual Architecture - Desktop: Left, Mobile: Bottom (order-2) */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
-          >
+          <div className="animate-fade-left reveal-view order-2 lg:order-1">
             <AgentArchitectureVisual />
-          </motion.div>
+          </div>
 
           {/* Install Command - Desktop: Right, Mobile: Top (order-1) */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-1 lg:order-2"
-          >
+          <div className="animate-fade-right reveal-view order-1 lg:order-2">
             <AgentInstallCommand />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

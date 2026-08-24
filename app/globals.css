@@ -15,6 +15,12 @@
 
 @theme {
   --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-fade-left: fade-left 0.6s ease-out both;
+  --animate-fade-right: fade-right 0.6s ease-out both;
+  --animate-fade-scale: fade-scale 0.5s ease-out both;
+  --animate-fade-in: fade-in 0.8s ease-out both;
+  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
+  --animate-nudge-x: nudge-x 2s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -24,6 +30,68 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounce-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+
+  @keyframes nudge-x {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
     }
   }
 }
@@ -89,6 +157,14 @@ html {
   color: inherit;
 }
 
+/* Scroll-triggered reveals (no JS; scrubs with scroll where supported) */
+@supports (animation-timeline: view()) {
+  .reveal-view {
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -97,5 +173,9 @@ html {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal-view {
+    animation: none;
   }
 }

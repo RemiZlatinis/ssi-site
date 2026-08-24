@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { AppLink } from "@/components/ui/AppLink";
 
@@ -9,12 +6,7 @@ export function CTASection() {
   return (
     <section className="w-full py-24 bg-gradient-to-b from-indigo-950 to-black text-white">
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="animate-fade-up reveal-view">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-6">
             Ready to monitor everything? The sky&apos;s the limit!
           </h2>
@@ -34,7 +26,7 @@ export function CTASection() {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   ExternalLink,
   Smartphone,
@@ -20,12 +17,7 @@ export function ClientsSection() {
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-up reveal-view">
             <div className="inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium mb-4 border border-white/20">
               <Globe className="mr-2 h-4 w-4" /> Multi-Platform
             </div>
@@ -36,19 +28,13 @@ export function ClientsSection() {
               Monitor your infrastructure from any device. Real-time updates
               synchronized across all your clients.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Clients Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Mobile App - Left on Desktop, First on Mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
+          <div className="animate-fade-left reveal-view space-y-6">
             <MobileClientMockup />
 
             <div className="text-center space-y-4">
@@ -93,16 +79,10 @@ export function ClientsSection() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Web App - Right on Desktop, Second on Mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
+          <div className="animate-fade-right reveal-view space-y-6">
             <WebClientMockup />
 
             <div className="text-center space-y-4">
@@ -141,7 +121,7 @@ export function ClientsSection() {
                 Open Web App
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

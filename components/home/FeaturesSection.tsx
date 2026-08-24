@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Terminal, Server, Smartphone } from "lucide-react";
 
 export function FeaturesSection() {
@@ -19,12 +16,8 @@ export function FeaturesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Agent */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
+          <div
+            className="animate-fade-up reveal-view flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
           >
             <div className="h-14 w-14 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-700 transition-colors">
               <Terminal className="h-7 w-7 text-zinc-900 dark:text-white" />
@@ -34,15 +27,11 @@ export function FeaturesSection() {
               Lightweight Linux daemon. Runs BASH scripts, monitors systemd
               services, and streams updates via secure WebSocket.
             </p>
-          </motion.div>
+          </div>
 
           {/* Backend */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
+          <div
+            className="animate-fade-up reveal-view flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
           >
             <div className="h-14 w-14 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-700 transition-colors">
               <Server className="h-7 w-7 text-zinc-900 dark:text-white" />
@@ -52,15 +41,11 @@ export function FeaturesSection() {
               Powerful Django & Channels server. Handles authentication,
               real-time message routing, and data persistence.
             </p>
-          </motion.div>
+          </div>
 
           {/* Client */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
+          <div
+            className="animate-fade-up reveal-view flex flex-col items-center text-center p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 group"
           >
             <div className="h-14 w-14 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center mb-6 group-hover:bg-zinc-300 dark:group-hover:bg-zinc-700 transition-colors">
               <Smartphone className="h-7 w-7 text-zinc-900 dark:text-white" />
@@ -70,7 +55,7 @@ export function FeaturesSection() {
               React Native mobile app. Receive push notifications, view
               real-time logs, and manage your infrastructure on the go.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
