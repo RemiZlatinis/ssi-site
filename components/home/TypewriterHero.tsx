@@ -168,9 +168,9 @@ export function TypewriterHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="mt-4 text-sm text-zinc-500 font-mono"
+              className="mt-4 text-sm text-zinc-400 font-mono"
             >
-              <span className="text-zinc-600"># </span>
+              <span className="text-zinc-400"># </span>
               {commands[currentCommandIndex].description}
             </motion.div>
           </AnimatePresence>
@@ -215,7 +215,7 @@ export function TypewriterHero() {
           </button>
 
           {/* Mobile: Swipe hint */}
-          <div className="sm:hidden text-xs text-zinc-600 font-mono">
+          <div className="sm:hidden text-xs text-zinc-400 font-mono">
             Swipe to navigate
           </div>
         </div>

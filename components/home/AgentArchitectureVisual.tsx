@@ -35,13 +35,13 @@ export function AgentArchitectureVisual() {
                 <span>Service Scripts</span>
               </div>
               <div className="mt-2 space-y-1">
-                <div className="text-xs font-mono text-zinc-500 dark:text-zinc-500 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">api-health.bash</div>
-                <div className="text-xs font-mono text-zinc-500 dark:text-zinc-500 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">system-updates.bash</div>
+                <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">api-health.bash</div>
+                <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">system-updates.bash</div>
               </div>
             </div>
             <div className="flex flex-col items-center gap-1">
               <Clock className="h-5 w-5 text-blue-500" />
-              <span className="text-[10px] text-zinc-500">systemd</span>
+              <span className="text-[10px] text-zinc-600 dark:text-zinc-400">systemd</span>
             </div>
           </motion.div>
 
@@ -69,7 +69,7 @@ export function AgentArchitectureVisual() {
                 <span>Log Files</span>
               </div>
               <div className="mt-2 space-y-1">
-                <div className="text-xs font-mono text-zinc-500 dark:text-zinc-500 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">/var/log/ssi-agent/</div>
+                <div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-950 rounded px-2 py-1">/var/log/ssi-agent/</div>
               </div>
             </div>
             <div className="w-16" />

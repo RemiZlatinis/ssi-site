@@ -10,16 +10,16 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 const customTheme = {
   ...vscDarkPlus,
   comment: {
-    color: "#71717a", // zinc-500 gray
+    color: "#a1a1aa", // zinc-400 gray, >= 4.5:1 contrast on dark background
   },
   prolog: {
-    color: "#71717a",
+    color: "#a1a1aa",
   },
   doctype: {
-    color: "#71717a",
+    color: "#a1a1aa",
   },
   cdata: {
-    color: "#71717a",
+    color: "#a1a1aa",
   },
 };
 
@@ -232,7 +232,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   <span className="text-sm font-medium text-zinc-300">
                     {activeConnection.source.label}
                   </span>
-                  <span className="text-xs text-zinc-500">
+                  <span className="text-xs text-zinc-400">
                     ({activeConnection.source.filename})
                   </span>
                 </div>
@@ -269,7 +269,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   }}
                   showLineNumbers
                   lineNumberStyle={{
-                    color: "#52525b",
+                    color: "#a1a1aa",
                     paddingRight: "1rem",
                     minWidth: "2rem",
                   }}
@@ -298,7 +298,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   <span className="text-sm font-medium text-zinc-300">
                     {activeConnection.destination.label}
                   </span>
-                  <span className="text-xs text-zinc-500">
+                  <span className="text-xs text-zinc-400">
                     ({activeConnection.destination.filename})
                   </span>
                 </div>
@@ -335,7 +335,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   }}
                   showLineNumbers
                   lineNumberStyle={{
-                    color: "#52525b",
+                    color: "#a1a1aa",
                     paddingRight: "1rem",
                     minWidth: "2rem",
                   }}
