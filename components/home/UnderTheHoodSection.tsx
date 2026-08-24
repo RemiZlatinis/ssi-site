@@ -1,6 +1,9 @@
 import { readFileSync } from "fs";
 import { join } from "path";
+import { highlightCode } from "@/lib/code-highlight";
 import { UnderTheHoodClient } from "./UnderTheHoodClient";
+
+const PANEL_COMMENT_COLOR = "#a1a1aa";
 
 // Read files at BUILD TIME - cached by Next.js SSG
 function getCodeExample(filename: string): string {
@@ -8,6 +11,22 @@ function getCodeExample(filename: string): string {
     join(process.cwd(), "code-examples", filename),
     "utf-8"
   );
+}
+
+async function getCodeSide(side: {
+  filename: string;
+  language: string;
+  code: string;
+  iconName: string;
+  iconColor: string;
+  label: string;
+}) {
+  return {
+    ...side,
+    html: await highlightCode(side.code, side.language, {
+      commentColor: PANEL_COMMENT_COLOR,
+    }),
+  };
 }
 
 const connections = [
@@ -101,6 +120,14 @@ const connections = [
   },
 ];
 
-export function UnderTheHoodSection() {
-  return <UnderTheHoodClient connections={connections} />;
+export async function UnderTheHoodSection() {
+  const highlightedConnections = await Promise.all(
+    connections.map(async (connection) => ({
+      ...connection,
+      source: await getCodeSide(connection.source),
+      destination: await getCodeSide(connection.destination),
+    })),
+  );
+
+  return <UnderTheHoodClient connections={highlightedConnections} />;
 }

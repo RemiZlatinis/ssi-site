@@ -2,8 +2,38 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
+import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
+import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
+import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
+import yaml from "react-syntax-highlighter/dist/esm/languages/prism/yaml";
+import ini from "react-syntax-highlighter/dist/esm/languages/prism/ini";
+import docker from "react-syntax-highlighter/dist/esm/languages/prism/docker";
+import diff from "react-syntax-highlighter/dist/esm/languages/prism/diff";
+import markdown from "react-syntax-highlighter/dist/esm/languages/prism/markdown";
+
+const registeredLanguages: Record<string, unknown> = {
+  bash,
+  shell: bash,
+  python,
+  typescript,
+  tsx,
+  javascript,
+  json,
+  yaml,
+  ini,
+  docker,
+  diff,
+  markdown,
+};
+
+Object.entries(registeredLanguages).forEach(([name, language]) => {
+  SyntaxHighlighter.registerLanguage(name, language as never);
+});
 
 // Custom theme with gray comments instead of green (consistent with homepage)
 const customTheme = {

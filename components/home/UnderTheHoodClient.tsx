@@ -3,47 +3,24 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, ChevronRight, Cpu } from "lucide-react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-// Custom theme with gray comments instead of green
-const customTheme = {
-  ...vscDarkPlus,
-  comment: {
-    color: "#a1a1aa", // zinc-400 gray, >= 4.5:1 contrast on dark background
-  },
-  prolog: {
-    color: "#a1a1aa",
-  },
-  doctype: {
-    color: "#a1a1aa",
-  },
-  cdata: {
-    color: "#a1a1aa",
-  },
-};
+interface CodeSide {
+  filename: string;
+  language: string;
+  code: string;
+  html: string;
+  iconName: string;
+  iconColor: string;
+  label: string;
+}
 
 interface Connection {
   id: string;
   title: string;
   description: string;
   connectionLabel: string;
-  source: {
-    filename: string;
-    language: string;
-    code: string;
-    iconName: string;
-    iconColor: string;
-    label: string;
-  };
-  destination: {
-    filename: string;
-    language: string;
-    code: string;
-    iconName: string;
-    iconColor: string;
-    label: string;
-  };
+  source: CodeSide;
+  destination: CodeSide;
 }
 
 interface UnderTheHoodClientProps {
@@ -256,27 +233,19 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
               </div>
 
               {/* Code */}
-              <div className="overflow-x-auto">
-                <SyntaxHighlighter
-                  language={activeConnection.source.language}
-                  style={customTheme}
-                  customStyle={{
-                    margin: 0,
-                    padding: "1rem",
-                    background: "transparent",
-                    fontSize: "0.75rem",
-                    lineHeight: "1.25rem",
-                  }}
-                  showLineNumbers
-                  lineNumberStyle={{
-                    color: "#a1a1aa",
-                    paddingRight: "1rem",
-                    minWidth: "2rem",
-                  }}
-                >
-                  {activeConnection.source.code}
-                </SyntaxHighlighter>
-              </div>
+              <div
+                className="overflow-x-auto code-highlighted show-line-numbers"
+                style={
+                  {
+                    "--line-number-color": "#a1a1aa",
+                    "--code-font-size": "0.75rem",
+                    "--code-line-height": "1.25rem",
+                  } as React.CSSProperties
+                }
+                dangerouslySetInnerHTML={{
+                  __html: activeConnection.source.html,
+                }}
+              />
             </motion.div>
 
             {/* Destination Side */}
@@ -322,27 +291,19 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
               </div>
 
               {/* Code */}
-              <div className="overflow-x-auto">
-                <SyntaxHighlighter
-                  language={activeConnection.destination.language}
-                  style={customTheme}
-                  customStyle={{
-                    margin: 0,
-                    padding: "1rem",
-                    background: "transparent",
-                    fontSize: "0.75rem",
-                    lineHeight: "1.25rem",
-                  }}
-                  showLineNumbers
-                  lineNumberStyle={{
-                    color: "#a1a1aa",
-                    paddingRight: "1rem",
-                    minWidth: "2rem",
-                  }}
-                >
-                  {activeConnection.destination.code}
-                </SyntaxHighlighter>
-              </div>
+              <div
+                className="overflow-x-auto code-highlighted show-line-numbers"
+                style={
+                  {
+                    "--line-number-color": "#a1a1aa",
+                    "--code-font-size": "0.75rem",
+                    "--code-line-height": "1.25rem",
+                  } as React.CSSProperties
+                }
+                dangerouslySetInnerHTML={{
+                  __html: activeConnection.destination.html,
+                }}
+              />
             </motion.div>
           </AnimatePresence>
         </div>

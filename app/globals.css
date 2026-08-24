@@ -55,6 +55,34 @@ html {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(82 82 91 / 0.2)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 }
 
+/* Server-highlighted code (shiki) */
+.code-highlighted pre {
+  margin: 0;
+  padding: 1rem;
+  background-color: transparent !important;
+  overflow-x: auto;
+  font-size: var(--code-font-size, 0.875rem);
+  line-height: var(--code-line-height, 1.5rem);
+}
+
+.code-highlighted.show-line-numbers {
+  counter-reset: line;
+}
+
+.code-highlighted.show-line-numbers .line {
+  counter-increment: line;
+}
+
+.code-highlighted.show-line-numbers .line::before {
+  content: counter(line);
+  display: inline-block;
+  width: 2rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--line-number-color, #52525b);
+  user-select: none;
+}
+
 /* Selection styles */
 ::selection {
   background-color: rgba(59, 130, 246, 0.3);
