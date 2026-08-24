@@ -38,7 +38,11 @@ export async function fetchDocsRawFile(
 
   const res = await fetch(url, {
     next: {
-      revalidate: 60 * 60, // 1 hour
+      // Entries are invalidated on demand via revalidateTag("docs:<sourceId>")
+      // when the source repository pushes (see /api/revalidate-docs).
+      // The TTL is a self-healing safety net for missed webhooks only.
+      revalidate: 60 * 60 * 24,
+      tags: [`docs:${source.id}`],
     },
   });
 
