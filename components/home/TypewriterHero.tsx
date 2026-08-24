@@ -196,6 +196,7 @@ export function TypewriterHero() {
                 onClick={() => goToCommand(index)}
                 className="group flex h-12 w-12 items-center justify-center cursor-pointer"
                 aria-label={`Go to command ${index + 1}`}
+                aria-current={index === currentCommandIndex ? "step" : undefined}
               >
                 <span
                   className={`h-2 rounded-full transition-all duration-300 ${
