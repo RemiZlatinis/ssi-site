@@ -139,7 +139,7 @@ export function TypewriterHero() {
 
         {/* Terminal Body */}
         <div className="p-4 min-h-[120px]">
-          <div className="font-mono text-sm">
+          <div className="font-mono text-sm overflow-x-auto whitespace-nowrap">
             {/* Prompt */}
             <span className="text-green-400">user@server</span>
             <span className="text-zinc-400">:</span>
