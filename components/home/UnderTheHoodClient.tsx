@@ -240,6 +240,11 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   onClick={() =>
                     handleCopy("source", activeConnection.source.code)
                   }
+                  aria-label={
+                    copiedSide === "source"
+                      ? "Copied"
+                      : "Copy source code to clipboard"
+                  }
                   className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
                 >
                   {copiedSide === "source" ? (
@@ -300,6 +305,11 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                 <button
                   onClick={() =>
                     handleCopy("destination", activeConnection.destination.code)
+                  }
+                  aria-label={
+                    copiedSide === "destination"
+                      ? "Copied"
+                      : "Copy destination code to clipboard"
                   }
                   className="text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
                 >
