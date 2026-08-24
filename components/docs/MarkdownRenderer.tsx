@@ -171,7 +171,7 @@ export function MarkdownRenderer({
 
           // This is inline code
           return (
-            <code className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 text-sm font-mono text-zinc-800 dark:text-zinc-200">
+            <code className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 text-sm font-mono text-zinc-800 dark:text-zinc-200 break-all">
               {children}
             </code>
           );
