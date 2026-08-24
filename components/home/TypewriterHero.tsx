@@ -118,12 +118,9 @@ export function TypewriterHero() {
   return (
     <div className="w-full max-w-3xl mx-auto">
       {/* Terminal Window */}
-      <motion.div
+      <div
         ref={containerRef}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-900 shadow-2xl"
+        className="animate-fade-up [animation-delay:300ms] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-900 shadow-2xl"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -161,7 +158,7 @@ export function TypewriterHero() {
           </div>
 
           {/* Command Description */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentCommandIndex}
               initial={{ opacity: 0, y: 10 }}
@@ -224,7 +221,7 @@ export function TypewriterHero() {
             Swipe to navigate
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

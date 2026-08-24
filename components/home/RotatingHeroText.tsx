@@ -21,7 +21,7 @@ export function RotatingHeroText() {
       className="relative inline-block overflow-hidden"
       style={{ height: "1.2em", verticalAlign: "bottom" }}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={currentIndex}
           initial={{ y: 40, opacity: 0, rotateX: -45 }}
