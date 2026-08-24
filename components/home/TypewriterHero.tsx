@@ -177,7 +177,7 @@ export function TypewriterHero() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex items-center justify-between px-4 pb-4">
+        <div className="flex flex-wrap items-center justify-between px-4 pb-4">
           {/* Previous Button (Desktop) */}
           <button
             onClick={goToPrevious}
@@ -189,18 +189,22 @@ export function TypewriterHero() {
           </button>
 
           {/* Progress Indicators */}
-          <div className="flex gap-1.5 sm:mx-auto">
+          <div className="flex mx-auto">
             {commands.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToCommand(index)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  index === currentCommandIndex
-                    ? "w-8 bg-green-400"
-                    : "w-2 bg-zinc-700 hover:bg-zinc-600"
-                }`}
+                className="group flex h-12 w-12 items-center justify-center cursor-pointer"
                 aria-label={`Go to command ${index + 1}`}
-              />
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentCommandIndex
+                      ? "w-8 bg-green-400"
+                      : "w-2 bg-zinc-700 group-hover:bg-zinc-600"
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -215,7 +219,7 @@ export function TypewriterHero() {
           </button>
 
           {/* Mobile: Swipe hint */}
-          <div className="sm:hidden text-xs text-zinc-400 font-mono">
+          <div className="sm:hidden w-full text-center text-xs text-zinc-400 font-mono pt-1">
             Swipe to navigate
           </div>
         </div>
