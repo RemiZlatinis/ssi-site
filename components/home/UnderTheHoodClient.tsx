@@ -317,12 +317,9 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
             className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-xs font-medium text-zinc-300"
           >
             <span>{activeConnection.connectionLabel}</span>
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
+            <span className="animate-nudge-x inline-flex">
               <ChevronRight className="h-3.5 w-3.5" />
-            </motion.span>
+            </span>
           </motion.div>
         </div>
       </div>

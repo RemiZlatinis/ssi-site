@@ -150,11 +150,7 @@ export function TypewriterHero() {
             <span className="text-zinc-100">{displayedText}</span>
 
             {/* Cursor */}
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity }}
-              className="inline-block w-2 h-4 bg-green-400 ml-0.5"
-            />
+            <span className="animate-blink inline-block w-2 h-4 bg-green-400 ml-0.5" />
           </div>
 
           {/* Command Description */}
