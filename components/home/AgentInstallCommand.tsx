@@ -40,9 +40,9 @@ function SudoTooltip() {
             className="absolute z-50 w-80 p-4 bg-white dark:bg-zinc-800 rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700 left-0 top-full mt-2"
           >
             <div className="flex items-start justify-between mb-2">
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+              <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                 Why sudo is required
-              </h5>
+              </h4>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-0.5 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded transition-colors"
@@ -145,10 +145,10 @@ export function AgentInstallCommand() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mt-6 space-y-3"
       >
-        <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
           <Shield className="h-4 w-4 text-zinc-500" />
           Prerequisites
-        </h4>
+        </h3>
         <div className="grid grid-cols-2 gap-2 text-xs">
           <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
             <Cpu className="h-3.5 w-3.5" />

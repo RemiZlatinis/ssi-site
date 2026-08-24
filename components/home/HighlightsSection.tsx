@@ -61,7 +61,7 @@ export function HighlightsSection() {
               <p className="font-mono text-sm text-zinc-600 dark:text-zinc-400">
                 Secure by Design
               </p>
-              <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-2">
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
                 Principle of Least Privilege
               </p>
             </div>

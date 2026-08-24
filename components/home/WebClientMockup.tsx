@@ -14,7 +14,7 @@ export function WebClientMockup() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
           </div>
-          <div className="flex-1 bg-zinc-600 rounded-md px-2 py-0.5 text-[10px] text-zinc-400 text-center">
+          <div className="flex-1 bg-zinc-600 rounded-md px-2 py-0.5 text-[10px] text-zinc-200 text-center">
             ssi-client-native.expo.app
           </div>
         </div>
