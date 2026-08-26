@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const commands = [
@@ -154,19 +153,13 @@ export function TypewriterHero() {
           </div>
 
           {/* Command Description */}
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={currentCommandIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="mt-4 text-sm text-zinc-400 font-mono"
-            >
-              <span className="text-zinc-400"># </span>
-              {commands[currentCommandIndex].description}
-            </motion.div>
-          </AnimatePresence>
+          <div
+            key={currentCommandIndex}
+            className="animate-fade-up mt-4 text-sm text-zinc-400 font-mono"
+          >
+            <span className="text-zinc-400"># </span>
+            {commands[currentCommandIndex].description}
+          </div>
         </div>
 
         {/* Navigation Controls */}

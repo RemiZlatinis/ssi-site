@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function MobileClientMockup() {
@@ -38,11 +37,8 @@ export function MobileClientMockup() {
             />
 
             {/* Expanded image - overlay with fade */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isExpanded ? 1 : 0 }}
-              transition={{ duration: 0.15 }}
-              className="absolute inset-0"
+            <div
+              className={`absolute inset-0 transition-opacity duration-150 ${isExpanded ? "opacity-100" : "opacity-0"}`}
             >
               <Image
                 src="/screenshots/mobile-app-screenshot-expand.png"
@@ -50,16 +46,14 @@ export function MobileClientMockup() {
                 fill
                 className="object-cover"
               />
-            </motion.div>
+            </div>
 
             {/* Hover Hint */}
-            <motion.div
-              animate={{ opacity: isExpanded ? 0 : 1 }}
-              transition={{ duration: 0.1 }}
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full"
+            <div
+              className={`absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full transition-opacity duration-100 ${isExpanded ? "opacity-0" : "opacity-100"}`}
             >
               <span className="text-[10px] text-white/80">Hover to expand</span>
-            </motion.div>
+            </div>
           </div>
 
           {/* Home Indicator */}
