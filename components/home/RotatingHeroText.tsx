@@ -6,8 +6,10 @@ const texts = ["Confidence", "Service Status Indicator"];
 
 export function RotatingHeroText() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % texts.length);
     }, 3000);
@@ -22,9 +24,9 @@ export function RotatingHeroText() {
     >
       <span
         key={currentIndex}
-        className={`animate-hero-rotate inline-block bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 whitespace-nowrap ${
-          currentIndex === 1 ? "font-[var(--font-bruno-ace)]" : ""
-        }`}
+        className={`inline-block bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 whitespace-nowrap ${
+          hasMounted ? "animate-hero-rotate" : ""
+        } ${currentIndex === 1 ? "font-[var(--font-bruno-ace)]" : ""}`}
         style={{
           transformOrigin: "center center",
           display: "inline-block",
