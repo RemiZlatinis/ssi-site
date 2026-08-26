@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, ChevronRight, Cpu } from "lucide-react";
 
 interface CodeSide {
@@ -133,12 +132,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
       <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-up reveal-view">
             <div className="inline-flex items-center rounded-lg bg-zinc-800 px-3 py-1 text-sm font-medium mb-4 border border-zinc-700">
               <Cpu className="mr-2 h-4 w-4" /> Data Flow
             </div>
@@ -149,18 +143,14 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
               See how data flows through the entire SSI system, from your
               service scripts all the way to your mobile app.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Connection Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {connections.map((connection, index) => (
-            <motion.button
+            <button
               key={connection.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => setActiveConnection(connection)}
               className={`min-w-56 md:min-w-auto px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 cursor-pointer ${
                 activeConnection.id === connection.id
@@ -172,32 +162,24 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                 {index + 1}
               </span>
               {connection.title}
-            </motion.button>
+            </button>
           ))}
         </div>
 
         {/* Connection Description */}
-        <motion.div
+        <div
           key={activeConnection.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-center mb-8"
+          className="animate-fade-up text-center mb-8"
         >
           <p className="text-zinc-400">{activeConnection.description}</p>
-        </motion.div>
+        </div>
 
         {/* Code Comparison */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <AnimatePresence mode="wait">
             {/* Source Side */}
-            <motion.div
+            <div
               key={`source-${activeConnection.id}`}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/50"
+              className="animate-fade-left rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/50"
             >
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900">
@@ -246,16 +228,12 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   __html: activeConnection.source.html,
                 }}
               />
-            </motion.div>
+            </div>
 
             {/* Destination Side */}
-            <motion.div
+            <div
               key={`destination-${activeConnection.id}`}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/50"
+              className="animate-fade-right rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900/50"
             >
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900">
@@ -304,23 +282,19 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                   __html: activeConnection.destination.html,
                 }}
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
         </div>
 
         {/* Connection Arrow (Desktop only) */}
         <div className="hidden lg:flex justify-center -my-2 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-xs font-medium text-zinc-300"
+          <div
+            className="animate-fade-scale reveal-view flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-800 border border-zinc-700 text-xs font-medium text-zinc-300"
           >
             <span>{activeConnection.connectionLabel}</span>
             <span className="animate-nudge-x inline-flex">
               <ChevronRight className="h-3.5 w-3.5" />
             </span>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
