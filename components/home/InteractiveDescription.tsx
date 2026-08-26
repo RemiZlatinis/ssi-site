@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface WordDefinition {
   word: string;
@@ -69,26 +68,20 @@ function Tooltip({ definition, isVisible, triggerRef }: TooltipProps) {
     }
   }, [isVisible]);
 
+  if (!isVisible) return null;
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          ref={tooltipRef}
-          initial={{ opacity: 0, scale: 0.95, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          transition={{ duration: 0.15 }}
-          className="fixed z-50 max-w-xs px-4 py-3 text-sm bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-lg shadow-xl border border-zinc-700 dark:border-zinc-200 pointer-events-none"
-          style={{
-            left: position.x,
-            top: position.y,
-          }}
-        >
-          {definition}
-          <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-zinc-900 dark:bg-white rotate-45 border-r border-b border-zinc-700 dark:border-zinc-200" />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div
+      ref={tooltipRef}
+      className="animate-fade-scale [animation-duration:150ms] fixed z-50 max-w-xs px-4 py-3 text-sm bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-lg shadow-xl border border-zinc-700 dark:border-zinc-200 pointer-events-none"
+      style={{
+        left: position.x,
+        top: position.y,
+      }}
+    >
+      {definition}
+      <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-zinc-900 dark:bg-white rotate-45 border-r border-b border-zinc-700 dark:border-zinc-200" />
+    </div>
   );
 }
 

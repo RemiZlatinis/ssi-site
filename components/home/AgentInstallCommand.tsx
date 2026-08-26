@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Check, Copy, Terminal, Download, Shield, Cpu, Info, X } from "lucide-react";
 
 const installCommand = "wget -qO- https://service-status-indicator.com/install.sh | sudo bash";
@@ -30,14 +29,9 @@ function SudoTooltip() {
         <Info className="h-3 w-3 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300" />
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="absolute z-50 w-80 p-4 bg-white dark:bg-zinc-800 rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700 left-0 top-full mt-2"
+      {isOpen && (
+          <div
+            className="animate-fade-scale [animation-duration:150ms] absolute z-50 w-80 p-4 bg-white dark:bg-zinc-800 rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700 left-0 top-full mt-2"
           >
             <div className="flex items-start justify-between mb-2">
               <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -71,9 +65,8 @@ function SudoTooltip() {
             </div>
             {/* Arrow */}
             <div className="absolute -top-1.5 left-4 w-3 h-3 bg-white dark:bg-zinc-800 border-l border-t border-zinc-200 dark:border-zinc-700 transform rotate-45" />
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </div>
   );
 }
