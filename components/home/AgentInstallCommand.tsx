@@ -127,7 +127,10 @@ export function AgentInstallCommand() {
         </div>
 
         {/* Command */}
-        <div className="p-4 overflow-x-auto scrollbar-thin scrollbar-track-zinc-800 scrollbar-thumb-zinc-600">
+        <div
+          tabIndex={0}
+          className="p-4 overflow-x-auto scrollbar-thin scrollbar-track-zinc-800 scrollbar-thumb-zinc-600"
+        >
           <div className="flex items-start gap-2 whitespace-nowrap">
             <span className="text-green-400 font-mono text-sm">$</span>
             <code className="text-zinc-100 font-mono text-sm">
