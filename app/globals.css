@@ -22,6 +22,7 @@
   --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
   --animate-nudge-x: nudge-x 2s ease-in-out infinite;
   --animate-blink: blink 0.8s ease-in-out infinite;
+  --animate-hero-rotate: hero-rotate-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @keyframes blink {
     0%,
@@ -30,6 +31,17 @@
     }
     50% {
       opacity: 0;
+    }
+  }
+
+  @keyframes hero-rotate-in {
+    from {
+      opacity: 0;
+      transform: translateY(40px) rotateX(-45deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
     }
   }
 

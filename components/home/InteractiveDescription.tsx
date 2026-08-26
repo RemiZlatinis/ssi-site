@@ -41,31 +41,33 @@ function Tooltip({ definition, isVisible, triggerRef }: TooltipProps) {
   const tooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isVisible && triggerRef.current && tooltipRef.current) {
+    if (!isVisible) return;
+
+    const frame = requestAnimationFrame(() => {
+      if (!triggerRef.current || !tooltipRef.current) return;
+
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const tooltipRect = tooltipRef.current.getBoundingClientRect();
 
-      // Center horizontally above the trigger
       let x = triggerRect.left + triggerRect.width / 2 - tooltipRect.width / 2;
       let y = triggerRect.top - tooltipRect.height - 8;
 
-      // Keep within viewport
       const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
 
       if (x < 8) x = 8;
       if (x + tooltipRect.width > viewportWidth - 8) {
         x = viewportWidth - tooltipRect.width - 8;
       }
 
-      // If too close to top, show below
       if (y < 8) {
-        y = triggerRect.bottom + 8;
+        y = triggerRef.current.getBoundingClientRect().bottom + 8;
       }
 
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setPosition({ x, y });
-    }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [isVisible]);
 
   if (!isVisible) return null;

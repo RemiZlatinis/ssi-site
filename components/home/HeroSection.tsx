@@ -20,7 +20,7 @@ export function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="animate-fade-up [animation-delay:100ms] text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl text-black dark:text-white">
+          <h1 className="animate-fade-up text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl text-black dark:text-white">
             Monitor with <br />
             <RotatingHeroText />
           </h1>
