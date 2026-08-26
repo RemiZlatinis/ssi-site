@@ -260,6 +260,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                 <SyntaxHighlighter
                   language={activeConnection.source.language}
                   style={customTheme}
+                  tabIndex={0}
                   customStyle={{
                     margin: 0,
                     padding: "1rem",
@@ -326,6 +327,7 @@ export function UnderTheHoodClient({ connections }: UnderTheHoodClientProps) {
                 <SyntaxHighlighter
                   language={activeConnection.destination.language}
                   style={customTheme}
+                  tabIndex={0}
                   customStyle={{
                     margin: 0,
                     padding: "1rem",
