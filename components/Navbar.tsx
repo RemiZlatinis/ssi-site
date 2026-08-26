@@ -6,9 +6,13 @@ import { usePathname } from "next/navigation";
 import { Github, Menu, Heart, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { clsx } from "clsx";
-import { MobileMenu } from "./MobileMenu";
+import dynamic from "next/dynamic";
+
+const MobileMenu = dynamic(
+  () => import("./MobileMenu").then((m) => m.MobileMenu),
+  { ssr: false },
+);
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { motion, AnimatePresence } from "framer-motion";
 import { AppLink } from "./ui/AppLink";
 
 const navLinks = [
@@ -190,22 +194,14 @@ export function Navbar() {
               </button>
 
               {/* Sponsor Dropdown */}
-              <AnimatePresence>
-                {isSponsorOpen && (
+              {isSponsorOpen && (
                   <>
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="fixed inset-0 z-40"
+                    <div
+                      className="animate-fade-in [animation-duration:150ms] fixed inset-0 z-40"
                       onClick={() => setIsSponsorOpen(false)}
                     />
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl overflow-hidden z-50"
+                    <div
+                      className="animate-fade-scale [animation-duration:150ms] absolute right-0 top-full mt-2 w-48 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl overflow-hidden z-50"
                     >
                       <div className="p-1">
                         {sponsorLinks.map((link) =>
@@ -240,10 +236,9 @@ export function Navbar() {
                           )
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   </>
                 )}
-              </AnimatePresence>
             </div>
 
             {/* GitHub Icon */}
